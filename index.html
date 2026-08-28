@@ -15,29 +15,29 @@
     <style>
         :root {
             /* Gryffindor (Default) */
-            --color-primary: #740001; /* Vermelho escuro */
-            --color-secondary: #d3a625; /* Dourado */
+            --color-primary: #740001;
+            --color-secondary: #d3a625;
             --color-bg: #fbf8f1;
             --color-text: #1a1a1a;
         }
 
         [data-theme="slytherin"] {
-            --color-primary: #1a472a; /* Verde esmeralda */
-            --color-secondary: #aaaaaa; /* Prateado */
+            --color-primary: #1a472a;
+            --color-secondary: #aaaaaa;
             --color-bg: #0d120e;
             --color-text: #e0e0e0;
         }
 
         [data-theme="ravenclaw"] {
-            --color-primary: #0e1a40; /* Azul escuro */
-            --color-secondary: #946b2d; /* Bronze */
+            --color-primary: #0e1a40;
+            --color-secondary: #946b2d;
             --color-bg: #f0f4f8;
             --color-text: #1a1a1a;
         }
 
         [data-theme="hufflepuff"] {
-            --color-primary: #ecb939; /* Amarelo */
-            --color-secondary: #111111; /* Preto */
+            --color-primary: #ecb939;
+            --color-secondary: #111111;
             --color-bg: #fffdf7;
             --color-text: #111111;
         }
@@ -46,6 +46,13 @@
             background-color: var(--color-bg);
             color: var(--color-text);
             transition: background-color 0.4s ease, color 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
         }
 
         .theme-header {
@@ -66,7 +73,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen font-sans" data-theme="gryffindor">
+<body class="font-sans" data-theme="gryffindor">
 
     <!-- Navegação / Plataforma -->
     <nav class="theme-header p-4 sticky top-0 z-50">
@@ -89,19 +96,19 @@
                     </select>
                 </div>
                 
-                <button id="lang-btn" class="px-4 py-2 rounded bg-black/30 hover:bg-black/50 transition-colors font-bold text-white border border-white/20">
-                    EN
+                <button id="lang-btn" class="px-4 py-2 rounded bg-black/30 hover:bg-black/50 transition-colors font-bold text-white border border-white/20 flex items-center gap-2">
+                    🇵🇹 PT
                 </button>
             </div>
         </div>
     </nav>
 
     <!-- Conteúdo Principal -->
-    <main class="max-w-6xl mx-auto p-6 mt-12 text-center">
+    <main class="max-w-6xl mx-auto p-6 mt-12 text-center w-full">
         
         <!-- Hero Section -->
         <header class="mb-16">
-            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 magic-title" data-i18n="title">Raul Teixeira</h1>
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-4 magic-title" data-i18n="title">Nathan</h1>
             <p class="text-2xl italic font-serif opacity-80" data-i18n="slogan">"Onde a magia acontece"</p>
         </header>
 
@@ -135,13 +142,23 @@
         </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="p-6 mt-12 border-t" style="border-color: var(--color-secondary);">
+        <div class="max-w-6xl mx-auto text-center opacity-70 font-medium">
+            <p>&copy; <span id="current-year"></span> Raul Teixeira. <span data-i18n="copyright">Todos os direitos reservados.</span></p>
+        </div>
+    </footer>
+
     <!-- Lógica em JavaScript -->
     <script>
+        // Injetar o ano atual no footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
         // Dicionário de Traduções
         const i18n = {
             pt: {
                 navTitle: "Plataforma 9 3/4",
-                title: "Raul Teixeira",
+                title: "RNathan",
                 slogan: '"Onde a magia acontece"',
                 aboutTitle: "O Feiticeiro",
                 aboutText1: "Profissional de IT focado em Desenvolvimento Backend, Administração de Sistemas e Infraestruturas de Rede.",
@@ -150,11 +167,12 @@
                 skill1: "Backend: PHP, MySQL, Scripts Bash",
                 skill2: "Frontend: HTML, Tailwind CSS, JavaScript",
                 skill3: "Sistemas: Windows Server, Linux, Redes Cisco",
-                skill4: "Outros: Configuração de Firewalls, Automação de Tarefas"
+                skill4: "Outros: Configuração de Firewalls, Automação de Tarefas",
+                copyright: "Todos os direitos reservados."
             },
             en: {
                 navTitle: "Platform 9 3/4",
-                title: "Raul Teixeira",
+                title: "Nathan",
                 slogan: '"Where the magic happens"',
                 aboutTitle: "The Wizard",
                 aboutText1: "IT Professional focused on Backend Development, Systems Administration, and Network Infrastructure.",
@@ -163,7 +181,8 @@
                 skill1: "Backend: PHP, MySQL, Bash Scripts",
                 skill2: "Frontend: HTML, Tailwind CSS, JavaScript",
                 skill3: "Systems: Windows Server, Linux, Cisco Networking",
-                skill4: "Other: Firewall Configuration, Task Automation"
+                skill4: "Other: Firewall Configuration, Task Automation",
+                copyright: "All rights reserved."
             }
         };
 
@@ -173,7 +192,10 @@
         const langBtn = document.getElementById('lang-btn');
         langBtn.addEventListener('click', () => {
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
-            langBtn.textContent = currentLang === 'pt' ? 'PT' : 'EN';
+            
+            // Troca o texto e a bandeira do botão
+            langBtn.innerHTML = currentLang === 'pt' ? '🇵🇹 PT' : '🇬🇧 EN';
+            
             document.documentElement.lang = currentLang;
             
             // Atualizar textos
