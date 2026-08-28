@@ -5,16 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plataforma 9¾</title>
     
-    <!-- Ícone da aba do navegador (Favicon) -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Configuração de Variáveis de Tema -->
     <style>
         :root {
-            /* Gryffindor (Default) */
             --color-primary: #740001;
             --color-secondary: #d3a625;
             --color-bg: #fbf8f1;
@@ -42,6 +37,7 @@
             --color-text: #111111;
         }
 
+        /* MAGIA NO CURSOR */
         body {
             background-color: var(--color-bg);
             color: var(--color-text);
@@ -49,6 +45,13 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            /* Cursor de Varinha Mágica via SVG */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" style="transform: rotate(45deg);"><text y="24" font-size="24">🪄</text></svg>') 0 0, auto;
+        }
+
+        /* Garante que links e botões usam o cursor normal de clique */
+        a, button, select {
+            cursor: pointer;
         }
 
         main {
@@ -70,22 +73,25 @@
         .card-border {
             border: 2px solid var(--color-primary);
             box-shadow: 4px 4px 0px var(--color-secondary);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        /* Efeito de levitação ao passar o rato nos cartões */
+        .card-border:hover {
+            transform: translateY(-4px);
+            box-shadow: 6px 6px 0px var(--color-secondary);
         }
     </style>
 </head>
 <body class="font-sans" data-theme="gryffindor">
 
-    <!-- Navegação / Plataforma -->
     <nav class="theme-header p-4 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            
-            <!-- Logo da Imagem no Site -->
             <div class="flex items-center gap-3 text-2xl font-bold tracking-wider">
                 <img src="logo.jpg" alt="Hogwarts Express Logo" class="w-12 h-12 rounded-full border-2 object-cover shadow-md hover:scale-110 transition-transform cursor-pointer" style="border-color: var(--color-secondary);">
                 <span data-i18n="navTitle">Plataforma 9¾</span>
             </div>
 
-            <!-- Controlos (Tema e Idioma) -->
             <div class="flex items-center gap-4">
                 <div class="relative">
                     <select id="theme-selector" class="appearance-none bg-white/90 text-black font-semibold text-sm rounded px-8 py-2 outline-none border-2 cursor-pointer" style="border-color: var(--color-secondary);">
@@ -104,19 +110,15 @@
         </div>
     </nav>
 
-    <!-- Conteúdo Principal -->
     <main class="max-w-6xl mx-auto p-6 mt-12 text-center w-full">
         
-        <!-- Hero Section -->
         <header class="mb-16">
             <h1 class="text-5xl md:text-6xl font-extrabold mb-4 magic-title" data-i18n="title">Nathan</h1>
             <p class="text-2xl italic font-serif opacity-80" data-i18n="slogan">"Onde a magia acontece"</p>
         </header>
 
-        <!-- Grelha de Informação -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mt-12">
             
-            <!-- Sobre Mim -->
             <div class="card-border rounded-xl p-8 bg-white/5 backdrop-blur">
                 <h2 class="text-3xl font-bold mb-6 flex items-center gap-3" style="color: var(--color-primary)">
                     🪄 <span data-i18n="aboutTitle">O Feiticeiro</span>
@@ -127,7 +129,6 @@
                 </div>
             </div>
 
-            <!-- Habilidades -->
             <div class="card-border rounded-xl p-8 bg-white/5 backdrop-blur">
                 <h2 class="text-3xl font-bold mb-6 flex items-center gap-3" style="color: var(--color-primary)">
                     📜 <span data-i18n="skillsTitle">Grimório de Skills</span>
@@ -139,15 +140,38 @@
                     <li class="flex items-center gap-2">🛠️ <span data-i18n="skill4">Outros: Configuração de Firewalls, Automação de Tarefas</span></li>
                 </ul>
             </div>
+            
+            <!-- NOVA SECÇÃO PROFISSIONAL: Projetos / Experiência -->
+            <div class="card-border rounded-xl p-8 bg-white/5 backdrop-blur md:col-span-2">
+                <h2 class="text-3xl font-bold mb-6 flex items-center gap-3" style="color: var(--color-primary)">
+                    🔮 <span data-i18n="projectsTitle">Câmara de Projetos</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <div class="p-5 border rounded-lg bg-black/5 hover:bg-black/10 transition" style="border-color: var(--color-secondary);">
+                        <h3 class="font-bold text-xl mb-2" data-i18n="proj1Title">Sistema CRM Web</h3>
+                        <p class="text-sm opacity-80 mb-3" data-i18n="proj1Desc">Desenvolvimento full-stack de uma plataforma de gestão de clientes (Leads, Kanban) utilizando PHP, MySQL e Tailwind CSS.</p>
+                    </div>
+                    
+                    <div class="p-5 border rounded-lg bg-black/5 hover:bg-black/10 transition" style="border-color: var(--color-secondary);">
+                        <h3 class="font-bold text-xl mb-2" data-i18n="proj2Title">Arquitetura de Redes</h3>
+                        <p class="text-sm opacity-80 mb-3" data-i18n="proj2Desc">Configuração de interfaces de roteamento, firewalls (Cisco ASA) e segmentação de VLANs em ambientes simulados (Packet Tracer).</p>
+                    </div>
+                    
+                    <div class="p-5 border rounded-lg bg-black/5 hover:bg-black/10 transition" style="border-color: var(--color-secondary);">
+                        <h3 class="font-bold text-xl mb-2" data-i18n="proj3Title">Administração de Servidores</h3>
+                        <p class="text-sm opacity-80 mb-3" data-i18n="proj3Desc">Implementação de Windows Server com gestão de Active Directory, reservas de IP via DHCP e políticas de segurança GPO.</p>
+                    </div>
+
+                </div>
+            </div>
 
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="p-6 mt-12 border-t" style="border-color: var(--color-secondary); background-color: var(--color-bg);">
         <div class="max-w-6xl mx-auto flex flex-col items-center gap-6">
             
-            <!-- Links Sociais -->
             <div class="flex gap-6">
                 <a href="https://github.com/Raul1290" target="_blank" rel="noopener noreferrer" class="hover:scale-110 transition-transform" aria-label="GitHub">
                     <svg class="w-8 h-8" style="fill: var(--color-primary);" viewBox="0 0 24 24">
@@ -161,19 +185,15 @@
                 </a>
             </div>
 
-            <!-- Copyright -->
             <div class="opacity-70 font-medium text-center">
                 <p>&copy; <span id="current-year"></span> Nathan1290. <span data-i18n="copyright">Todos os direitos reservados.</span></p>
             </div>
         </div>
     </footer>
 
-    <!-- Lógica em JavaScript -->
     <script>
-        // Injetar o ano atual no footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Dicionário de Traduções
         const i18n = {
             pt: {
                 navTitle: "Plataforma 9¾",
@@ -187,6 +207,13 @@
                 skill2: "Frontend: HTML, Tailwind CSS, JavaScript",
                 skill3: "Sistemas: Windows Server, Linux, Redes Cisco",
                 skill4: "Outros: Configuração de Firewalls, Automação de Tarefas",
+                projectsTitle: "Câmara de Projetos",
+                proj1Title: "Sistema CRM Web",
+                proj1Desc: "Desenvolvimento full-stack de uma plataforma de gestão de clientes (Leads, Kanban) utilizando PHP, MySQL e Tailwind CSS.",
+                proj2Title: "Arquitetura de Redes",
+                proj2Desc: "Configuração de interfaces de roteamento, firewalls (Cisco ASA) e segmentação de VLANs em ambientes simulados (Packet Tracer).",
+                proj3Title: "Administração de Servidores",
+                proj3Desc: "Implementação de Windows Server com gestão de Active Directory, reservas de IP via DHCP e políticas de segurança GPO.",
                 copyright: "Todos os direitos reservados."
             },
             en: {
@@ -201,13 +228,19 @@
                 skill2: "Frontend: HTML, Tailwind CSS, JavaScript",
                 skill3: "Systems: Windows Server, Linux, Cisco Networking",
                 skill4: "Other: Firewall Configuration, Task Automation",
+                projectsTitle: "Chamber of Projects",
+                proj1Title: "Web CRM System",
+                proj1Desc: "Full-stack development of a client management platform (Leads, Kanban) using PHP, MySQL, and Tailwind CSS.",
+                proj2Title: "Network Architecture",
+                proj2Desc: "Configuration of routing interfaces, firewalls (Cisco ASA), and VLAN segmentation in simulated environments (Packet Tracer).",
+                proj3Title: "Server Administration",
+                proj3Desc: "Implementation of Windows Server with Active Directory management, DHCP IP reservations, and GPO security policies.",
                 copyright: "All rights reserved."
             }
         };
 
         let currentLang = 'pt';
 
-        // Lógica de Troca de Idioma
         const langBtn = document.getElementById('lang-btn');
         const flagIcon = document.getElementById('flag-icon');
         const langText = document.getElementById('lang-text');
@@ -215,7 +248,6 @@
         langBtn.addEventListener('click', () => {
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
             
-            // Atualiza a imagem e o texto do botão
             if (currentLang === 'pt') {
                 flagIcon.src = "https://flagcdn.com/w20/pt.png";
                 flagIcon.alt = "PT";
@@ -228,7 +260,6 @@
             
             document.documentElement.lang = currentLang;
             
-            // Atualizar textos da página
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (i18n[currentLang][key]) {
@@ -237,7 +268,6 @@
             });
         });
 
-        // Lógica de Troca de Tema
         const themeSelector = document.getElementById('theme-selector');
         themeSelector.addEventListener('change', (e) => {
             document.body.setAttribute('data-theme', e.target.value);
