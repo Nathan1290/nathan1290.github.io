@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plataforma 9 3/4</title>
     
-    <!-- Ícone da cabine do condutor (via Emoji SVG) -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚂</text></svg>">
+    <!-- Ícone da aba do navegador (Favicon) -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -79,9 +79,9 @@
     <nav class="theme-header p-4 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
             
-            <!-- Logo -->
+            <!-- Logo da Imagem no Site -->
             <div class="flex items-center gap-3 text-2xl font-bold tracking-wider">
-                <span class="text-3xl" title="Hogwarts Express">🚂</span>
+                <img src="logo.jpg" alt="Hogwarts Express Logo" class="w-12 h-12 rounded-full border-2 object-cover shadow-md hover:scale-110 transition-transform cursor-pointer" style="border-color: var(--color-secondary);">
                 <span data-i18n="navTitle">Plataforma 9 3/4</span>
             </div>
 
@@ -163,7 +163,7 @@
 
             <!-- Copyright -->
             <div class="opacity-70 font-medium text-center">
-                <p>&copy; <span id="current-year"></span> Nathan1290. <span data-i18n="copyright">Todos os direitos reservados.</span></p>
+                <p>&copy; <span id="current-year"></span> Nathan. <span data-i18n="copyright">Todos os direitos reservados.</span></p>
             </div>
         </div>
     </footer>
