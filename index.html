@@ -37,7 +37,7 @@
             --color-text: #111111;
         }
 
-        /* MAGIA NO CURSOR */
+        /* MAGIA NO CURSOR - Varinha Elegante (Vetorizado) */
         body {
             background-color: var(--color-bg);
             color: var(--color-text);
@@ -45,13 +45,13 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            /* Cursor de Varinha Mágica via SVG */
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" style="transform: rotate(45deg);"><text y="24" font-size="24">🪄</text></svg>') 0 0, auto;
+            /* Varinha minimalista com ponta dourada */
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 4 L20 20' stroke='%233b2413' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M14 14 L22 22' stroke='%2321140a' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='4' cy='4' r='2.5' fill='%23d3a625'/%3E%3Ccircle cx='4' cy='4' r='1' fill='%23ffffff'/%3E%3C/svg%3E") 4 4, auto;
         }
 
-        /* Garante que links e botões usam o cursor normal de clique */
+        /* Varinha com brilho dourado extra ao passar por cima de botões e links */
         a, button, select {
-            cursor: pointer;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='4' cy='4' r='5' fill='%23d3a625' opacity='0.4'/%3E%3Cpath d='M4 4 L20 20' stroke='%233b2413' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M14 14 L22 22' stroke='%2321140a' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='4' cy='4' r='2.5' fill='%23d3a625'/%3E%3Ccircle cx='4' cy='4' r='1' fill='%23ffffff'/%3E%3C/svg%3E") 4 4, pointer;
         }
 
         main {
@@ -141,7 +141,7 @@
                 </ul>
             </div>
             
-            <!-- NOVA SECÇÃO PROFISSIONAL: Projetos / Experiência -->
+            <!-- Secção Projetos -->
             <div class="card-border rounded-xl p-8 bg-white/5 backdrop-blur md:col-span-2">
                 <h2 class="text-3xl font-bold mb-6 flex items-center gap-3" style="color: var(--color-primary)">
                     🔮 <span data-i18n="projectsTitle">Câmara de Projetos</span>
