@@ -239,14 +239,14 @@
             }
         };
 
-        let currentLang = 'pt';
+        let currentLang = 'en';
 
         const langBtn = document.getElementById('lang-btn');
         const flagIcon = document.getElementById('flag-icon');
         const langText = document.getElementById('lang-text');
 
         langBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'pt' : 'en';
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
             
             if (currentLang === 'pt') {
                 flagIcon.src = "https://flagcdn.com/w20/pt.png";
