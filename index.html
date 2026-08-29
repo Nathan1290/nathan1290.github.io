@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma 9¾</title>
+    <title>Platform 9¾</title>
     
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,11 +45,9 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            /* Varinha minimalista com ponta dourada */
             cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M4 4 L20 20' stroke='%233b2413' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M14 14 L22 22' stroke='%2321140a' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='4' cy='4' r='2.5' fill='%23d3a625'/%3E%3Ccircle cx='4' cy='4' r='1' fill='%23ffffff'/%3E%3C/svg%3E") 4 4, auto;
         }
 
-        /* Varinha com brilho dourado extra ao passar por cima de botões e links */
         a, button, select {
             cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='4' cy='4' r='5' fill='%23d3a625' opacity='0.4'/%3E%3Cpath d='M4 4 L20 20' stroke='%233b2413' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M14 14 L22 22' stroke='%2321140a' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='4' cy='4' r='2.5' fill='%23d3a625'/%3E%3Ccircle cx='4' cy='4' r='1' fill='%23ffffff'/%3E%3C/svg%3E") 4 4, pointer;
         }
@@ -76,7 +74,6 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         
-        /* Efeito de levitação ao passar o rato nos cartões */
         .card-border:hover {
             transform: translateY(-4px);
             box-shadow: 6px 6px 0px var(--color-secondary);
@@ -89,7 +86,7 @@
         <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
             <div class="flex items-center gap-3 text-2xl font-bold tracking-wider">
                 <img src="logo.jpg" alt="Hogwarts Express Logo" class="w-12 h-12 rounded-full border-2 object-cover shadow-md hover:scale-110 transition-transform cursor-pointer" style="border-color: var(--color-secondary);">
-                <span data-i18n="navTitle">Plataforma 9¾</span>
+                <span data-i18n="navTitle">Platform 9¾</span>
             </div>
 
             <div class="flex items-center gap-4">
@@ -103,8 +100,9 @@
                 </div>
                 
                 <button id="lang-btn" class="px-4 py-2 rounded bg-black/30 hover:bg-black/50 transition-colors font-bold text-white border border-white/20 flex items-center gap-2">
-                    <img id="flag-icon" src="https://flagcdn.com/w20/pt.png" alt="PT" class="w-5 rounded-sm">
-                    <span id="lang-text">PT</span>
+                    <!-- Agora começa com a bandeira Inglesa por default -->
+                    <img id="flag-icon" src="https://flagcdn.com/w20/gb.png" alt="EN" class="w-5 rounded-sm">
+                    <span id="lang-text">EN</span>
                 </button>
             </div>
         </div>
@@ -114,53 +112,52 @@
         
         <header class="mb-16">
             <h1 class="text-5xl md:text-6xl font-extrabold mb-4 magic-title" data-i18n="title">Nathan</h1>
-            <p class="text-2xl italic font-serif opacity-80" data-i18n="slogan">"Onde a magia acontece"</p>
+            <p class="text-2xl italic font-serif opacity-80" data-i18n="slogan">"Where the magic begins"</p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mt-12">
             
             <div class="card-border rounded-xl p-8 bg-white/5 backdrop-blur">
                 <h2 class="text-3xl font-bold mb-6 flex items-center gap-3" style="color: var(--color-primary)">
-                    🪄 <span data-i18n="aboutTitle">O Feiticeiro</span>
+                    🪄 <span data-i18n="aboutTitle">The Wizard</span>
                 </h2>
                 <div class="space-y-4 text-lg">
-                    <p data-i18n="aboutText1">Profissional de IT focado em Desenvolvimento Backend, Administração de Sistemas e Infraestruturas de Rede.</p>
-                    <p data-i18n="aboutText2">Quer seja a conjurar scripts em Bash para automação, gerir bases de dados MySQL ou a estabelecer comunicações seguras, o meu objetivo é criar sistemas resilientes que funcionam como por magia.</p>
+                    <p data-i18n="aboutText1">IT Professional focused on Backend Development, Systems Administration, and Network Infrastructure.</p>
+                    <p data-i18n="aboutText2">Whether conjuring Bash scripts for automation, managing MySQL databases, or establishing secure communications, my goal is to build resilient systems that work like magic.</p>
                 </div>
             </div>
 
             <div class="card-border rounded-xl p-8 bg-white/5 backdrop-blur">
                 <h2 class="text-3xl font-bold mb-6 flex items-center gap-3" style="color: var(--color-primary)">
-                    📜 <span data-i18n="skillsTitle">Grimório de Skills</span>
+                    📜 <span data-i18n="skillsTitle">Spellbook of Skills</span>
                 </h2>
                 <ul class="space-y-3 text-lg font-medium">
-                    <li class="flex items-center gap-2">⚡ <span data-i18n="skill1">Backend: PHP, MySQL, Scripts Bash</span></li>
+                    <li class="flex items-center gap-2">⚡ <span data-i18n="skill1">Backend: PHP, MySQL, Bash Scripts</span></li>
                     <li class="flex items-center gap-2">🎨 <span data-i18n="skill2">Frontend: HTML, Tailwind CSS, JavaScript</span></li>
-                    <li class="flex items-center gap-2">🛡️ <span data-i18n="skill3">Sistemas: Windows Server, Linux, Redes Cisco</span></li>
-                    <li class="flex items-center gap-2">🛠️ <span data-i18n="skill4">Outros: Configuração de Firewalls, Automação de Tarefas</span></li>
+                    <li class="flex items-center gap-2">🛡️ <span data-i18n="skill3">Systems: Windows Server, Linux, Cisco Networking</span></li>
+                    <li class="flex items-center gap-2">🛠️ <span data-i18n="skill4">Other: Firewall Configuration, Task Automation</span></li>
                 </ul>
             </div>
             
-            <!-- Secção Projetos -->
             <div class="card-border rounded-xl p-8 bg-white/5 backdrop-blur md:col-span-2">
                 <h2 class="text-3xl font-bold mb-6 flex items-center gap-3" style="color: var(--color-primary)">
-                    🔮 <span data-i18n="projectsTitle">Câmara de Projetos</span>
+                    🔮 <span data-i18n="projectsTitle">Chamber of Projects</span>
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     
                     <div class="p-5 border rounded-lg bg-black/5 hover:bg-black/10 transition" style="border-color: var(--color-secondary);">
-                        <h3 class="font-bold text-xl mb-2" data-i18n="proj1Title">Sistema CRM Web</h3>
-                        <p class="text-sm opacity-80 mb-3" data-i18n="proj1Desc">Desenvolvimento full-stack de uma plataforma de gestão de clientes (Leads, Kanban) utilizando PHP, MySQL e Tailwind CSS.</p>
+                        <h3 class="font-bold text-xl mb-2" data-i18n="proj1Title">Web CRM System</h3>
+                        <p class="text-sm opacity-80 mb-3" data-i18n="proj1Desc">Full-stack development of a client management platform (Leads, Kanban) using PHP, MySQL, and Tailwind CSS.</p>
                     </div>
                     
                     <div class="p-5 border rounded-lg bg-black/5 hover:bg-black/10 transition" style="border-color: var(--color-secondary);">
-                        <h3 class="font-bold text-xl mb-2" data-i18n="proj2Title">Arquitetura de Redes</h3>
-                        <p class="text-sm opacity-80 mb-3" data-i18n="proj2Desc">Configuração de interfaces de roteamento, firewalls (Cisco ASA) e segmentação de VLANs em ambientes simulados (Packet Tracer).</p>
+                        <h3 class="font-bold text-xl mb-2" data-i18n="proj2Title">Network Architecture</h3>
+                        <p class="text-sm opacity-80 mb-3" data-i18n="proj2Desc">Configuration of routing interfaces, firewalls (Cisco ASA), and VLAN segmentation in simulated environments (Packet Tracer).</p>
                     </div>
                     
                     <div class="p-5 border rounded-lg bg-black/5 hover:bg-black/10 transition" style="border-color: var(--color-secondary);">
-                        <h3 class="font-bold text-xl mb-2" data-i18n="proj3Title">Administração de Servidores</h3>
-                        <p class="text-sm opacity-80 mb-3" data-i18n="proj3Desc">Implementação de Windows Server com gestão de Active Directory, reservas de IP via DHCP e políticas de segurança GPO.</p>
+                        <h3 class="font-bold text-xl mb-2" data-i18n="proj3Title">Server Administration</h3>
+                        <p class="text-sm opacity-80 mb-3" data-i18n="proj3Desc">Implementation of Windows Server with Active Directory management, DHCP IP reservations, and GPO security policies.</p>
                     </div>
 
                 </div>
@@ -186,7 +183,7 @@
             </div>
 
             <div class="opacity-70 font-medium text-center">
-                <p>&copy; <span id="current-year"></span> Nathan1290. <span data-i18n="copyright">Todos os direitos reservados.</span></p>
+                <p>&copy; <span id="current-year"></span> Nathan1290. <span data-i18n="copyright">All rights reserved.</span></p>
             </div>
         </div>
     </footer>
@@ -198,7 +195,7 @@
             pt: {
                 navTitle: "Plataforma 9¾",
                 title: "Nathan",
-                slogan: '"Onde a magia acontece"',
+                slogan: '"Onde a magia começa"',
                 aboutTitle: "O Feiticeiro",
                 aboutText1: "Profissional de IT focado em Desenvolvimento Backend, Administração de Sistemas e Infraestruturas de Rede.",
                 aboutText2: "Quer seja a conjurar scripts em Bash para automação, gerir bases de dados MySQL ou a estabelecer comunicações seguras, o meu objetivo é criar sistemas resilientes que funcionam como por magia.",
@@ -219,7 +216,7 @@
             en: {
                 navTitle: "Platform 9¾",
                 title: "Nathan",
-                slogan: '"Where the magic happens"',
+                slogan: '"Where the magic begins"',
                 aboutTitle: "The Wizard",
                 aboutText1: "IT Professional focused on Backend Development, Systems Administration, and Network Infrastructure.",
                 aboutText2: "Whether conjuring Bash scripts for automation, managing MySQL databases, or establishing secure communications, my goal is to build resilient systems that work like magic.",
